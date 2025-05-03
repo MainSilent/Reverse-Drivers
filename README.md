@@ -45,3 +45,7 @@ openssl req -new -x509 -days 3650 -keyout test.key -out test.crt
 openssl pkcs12 -export -out test.pfx -inkey test.key -in test.crt
 osslsigncode sign -pkcs12 test.pfx -pass password -n "password" -in inteltcss.sys -out inteltcss_patched.sys
 ```
+
+Now you need to replace the patched driver with the real file in `C:/Windows/System32/drivers`.
+
+Restart and see the magic :)
