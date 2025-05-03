@@ -37,3 +37,11 @@ Now all we had to do is never branch the first `if` statement
 Then change return value to 0x0, Now our driver file is ready!
 
 <img src="img6.png">
+
+How to test if it works? We should put windwos in `testsigning` mode since MS doesnt allow for signed drivers without a trusted CA, After that we should self sign out driver file:
+
+```sh
+openssl req -new -x509 -days 3650 -keyout test.key -out test.crt
+openssl pkcs12 -export -out test.pfx -inkey test.key -in test.crt
+osslsigncode sign -pkcs12 test.pfx -pass password -n "password" -in inteltcss.sys -out inteltcss_patched.sys
+```
