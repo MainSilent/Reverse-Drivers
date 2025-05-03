@@ -1,7 +1,7 @@
 # Coolstar Patched
 
-### Legal  Note:
-This is just a simple tutorial to share information on how reverse engineering a windows driver can be done, I have legally bought all the coolstar drivers as they have spent so much time and effort and you should also respect that.
+### Legal Note:
+This is a simple tutorial intended to share information on how reverse engineering a Windows driver can be done. I have legally purchased all the Coolstar drivers, as they have invested significant time and effort. You should respect that as well.
 
 <hr/>
 We are trying to break intel tcss licensing.
