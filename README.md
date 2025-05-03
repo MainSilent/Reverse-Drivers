@@ -12,5 +12,7 @@ The setup file content can be extracted using 7zip as below
 
 It use dpinst to install the drivers and each folder contains *.cat, *.inf and *.sys, We are only intereseted in .sys file which contains the actual driver code.
 
+But there are 2 driver intelpmc and inteltcss, Which is the main one? the pmc driver doesnt check the license it just obersce the status on tcss driver so that is the only driver reads out license file.
+
 `I'm going to use binary ninja which is the most underrated binary reverse engieering tool`
 
