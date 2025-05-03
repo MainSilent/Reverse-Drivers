@@ -4,7 +4,7 @@
 This is a simple tutorial intended to share information on how reverse engineering a Windows driver can be done. I have legally purchased all the Coolstar drivers, as they have invested significant time and effort. You should respect that as well.
 
 <hr/>
-We are trying to break intel tcss licensing.
+We are trying to break Intel TCSS licensing.
 
 ### Step 1: How the installer works?
 The setup file content can be extracted using 7zip as below
