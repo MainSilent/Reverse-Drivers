@@ -16,3 +16,24 @@ But there are 2 driver intelpmc and inteltcss, Which is the main one? the pmc dr
 
 `I'm going to use binary ninja which is the most underrated binary reverse engieering tool`
 
+After opening the file we first would check the string to see if we can find any refrence to the license file name `inteltcss_signedlicense.bin` but no results!
+
+Now I have to check for a function that reads a file and after checking the symbols we hit the jackpot, `ZwReadFile` is exactly what we are looking for
+
+<img src="img2.png">
+
+And after checking the code refrence we find a function that only check license file status and it's content so nothing intersting there
+
+<img src="img3.png">
+
+But when checking the refrence of parent function we found on of the longest code of our file that checks the license content by first double hash the data and then use some sort og ECDSA verification then checks if the data match HWID and returns 0 on success
+
+<img src="img4.png">
+
+Now all we had to do is never branch the first `if` statement
+
+<img src="img5.png">
+
+Then change return value to 0x0, Now our driver file is ready!
+
+<img src="img6.png">
