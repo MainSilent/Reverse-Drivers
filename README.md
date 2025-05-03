@@ -12,16 +12,16 @@ The setup file contents can be extracted using 7-Zip as shown below:
 
 
 
-It uses DPInst to install the drivers. Each folder contains .cat, .inf, and .sys files. We are only interested in the .sys file, which contains the actual driver code.
+It uses `DPInst` to install the drivers. Each folder contains .cat, .inf, and .sys files. We are only interested in the .sys file, which contains the actual driver code.
 
-There are two drivers: intelpmc and inteltcss. Which one is the main driver?
+There are two drivers: `intelpmc` and `inteltcss`. Which one is the main driver?
 The pmc driver doesn't check the license; it just observes the status of the tcss driver. The tcss driver is the one that reads the license file.
 
 `I'm going to use Binary Ninja, which is the most underrated binary reverse engineering tool.`
 
-After opening the file, we first check the strings to see if there’s any reference to the license file name inteltcss_signedlicense.bin — but no results!
+After opening the file, we first check the strings to see if there’s any reference to the license file name `inteltcss_signedlicense.bin` — but no results!
 
-Next, we look for a function that reads a file. After checking the symbols, we hit the jackpot: ZwReadFile — exactly what we’re looking for.
+Next, we look for a function that reads a file. After checking the symbols, we hit the jackpot: `ZwReadFile` — exactly what we’re looking for.
 
 <img src="img2.png">
 
@@ -42,7 +42,7 @@ Then change the return value to 0x0. Now our driver file is ready!
 <img src="img6.png">
 
 ### How to test if it works? 
-We need to put Windows into testsigning mode, since Microsoft doesn’t allow unsigned drivers without a trusted certificate authority. After that, we can self-sign our driver file:
+We need to put Windows into `testsigning` mode, since Microsoft doesn’t allow signed drivers without a trusted certificate authority. After that, we can self-sign our driver file:
 
 ```sh
 openssl req -new -x509 -days 3650 -keyout test.key -out test.crt
