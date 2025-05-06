@@ -1,4 +1,4 @@
-# Reverse-Drivers
+# Reverse Drivers
 
 ### Legal Note:
 This is a simple tutorial intended to share information on how reverse engineering a Windows driver can be done. I have legally purchased all the Coolstar drivers, as they have invested significant time and effort. You should respect that as well.
