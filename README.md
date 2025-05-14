@@ -56,3 +56,7 @@ C:/Windows/System32/drivers
 ```
 
 Restart and see the magic :)
+
+<hr/>
+
+At the end of the day, this will never work, as you will always need to have `testsigning` enabled, which puts your PC at high risk. Also, many programs may not work properly. It's always best to purchase a legitimate version as a show of support to the developers.
